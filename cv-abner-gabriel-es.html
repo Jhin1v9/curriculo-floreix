@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abner Gabriel Ribeiro Mendes — Desarrollador de Software</title>
+<style>
+/* === RESET === */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* === VARIABLES === */
+:root {
+  --color-text: #1f1f1f;
+  --color-text-secondary: #4a4a4a;
+  --color-text-muted: #777;
+  --color-accent: #2c5282;
+  --color-border: #d5d5d5;
+  --color-border-light: #e8e8e8;
+  --font-body: Georgia, "Times New Roman", serif;
+  --font-heading: Arial, Helvetica, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* === BASE === */
+html {
+  font-size: 11.5px;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  line-height: 1.32;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === LAYOUT === */
+.page {
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 10mm 13mm 8mm 13mm;
+}
+
+/* === HEADER === */
+.header {
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1.5px solid var(--color-border);
+}
+
+.name {
+  font-family: var(--font-heading);
+  font-size: 1.55rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-top: 0.12rem;
+}
+
+.tagline {
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+  margin-top: 0.15rem;
+  font-style: italic;
+}
+
+.contact {
+  margin-top: 0.28rem;
+  font-family: var(--font-heading);
+  font-size: 0.73rem;
+  color: var(--color-text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.1rem 0.45rem;
+}
+
+.contact a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+/* === SECTIONS === */
+.section {
+  margin-bottom: 0.58rem;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.28rem;
+  padding-bottom: 0.1rem;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+/* === SUMMARY === */
+.summary {
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+  line-height: 1.42;
+}
+
+/* === EXPERIENCE === */
+.experience-item {
+  break-inside: avoid;
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0 0.8rem;
+}
+
+.role {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.dates {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.company {
+  font-family: var(--font-heading);
+  font-size: 0.76rem;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  margin-top: 0.02rem;
+}
+
+.company-context {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  margin: 0.1rem 0 0.16rem 0;
+  line-height: 1.38;
+  font-style: italic;
+}
+
+.bullets {
+  list-style: none;
+}
+
+.bullets li {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  padding-left: 0.85em;
+  position: relative;
+  margin-bottom: 0.08rem;
+  line-height: 1.38;
+}
+
+.bullets li::before {
+  content: "•";
+  position: absolute;
+  left: 0.15em;
+  color: var(--color-text-muted);
+}
+
+/* === PROJECTS === */
+.project {
+  margin-bottom: 0.34rem;
+  break-inside: avoid;
+}
+
+.project:last-child {
+  margin-bottom: 0;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0 0.6rem;
+}
+
+.project-name {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.project-repo {
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+.project-repo a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.project-tech {
+  font-family: var(--font-heading);
+  font-size: 0.69rem;
+  color: var(--color-text-muted);
+}
+
+.project-desc {
+  font-size: 0.74rem;
+  color: var(--color-text-secondary);
+  line-height: 1.38;
+}
+
+/* === SKILLS === */
+.skill-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  margin-bottom: 0.07rem;
+}
+
+.skill-label {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+  min-width: 8.2em;
+}
+
+.skill-items {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  color: var(--color-text-secondary);
+}
+
+/* === EDUCATION / CERTIFICATES === */
+.text-row {
+  font-size: 0.74rem;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+  margin-bottom: 0.1rem;
+}
+
+.text-row:last-child {
+  margin-bottom: 0;
+}
+
+.text-row strong {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* === LANGUAGES === */
+.lang-line {
+  font-family: var(--font-heading);
+  font-size: 0.74rem;
+  color: var(--color-text-secondary);
+  line-height: 1.45;
+}
+
+.lang-line strong {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* === FOOTER === */
+.footer {
+  margin-top: 0.42rem;
+  padding-top: 0.24rem;
+  border-top: 1px solid var(--color-border-light);
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  color: var(--color-text-muted);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.1rem;
+}
+
+.footer a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+/* === PRINT === */
+@media print {
+  @page {
+    size: A4;
+    margin: 10mm 13mm 8mm 13mm;
+  }
+
+  html {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    padding: 0;
+    max-width: none;
+    margin: 0;
+  }
+}
+
+/* === RESPONSIVE (pantalla) === */
+@media (max-width: 600px) {
+  .page {
+    padding: 10mm 8mm;
+  }
+
+  .skill-label {
+    min-width: 6.5em;
+  }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <h1 class="name">Abner Gabriel Ribeiro Mendes</h1>
+    <p class="title">Desarrollador de Software</p>
+    <p class="tagline">Construyo productos digitales completos: primero entiendo el problema, después elijo la tecnología.</p>
+    <div class="contact">
+      <span>Barcelona, España</span>
+      <span>·</span>
+      <a href="tel:+34685093192">+34 685 093 192</a>
+      <span>·</span>
+      <a href="mailto:abner2002@icloud.com">abner2002@icloud.com</a>
+      <span>·</span>
+      <a href="https://linkedin.com/in/abner-gabriel">linkedin.com/in/abner-gabriel</a>
+      <span>·</span>
+      <a href="https://github.com/Jhin1v9">github.com/Jhin1v9</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- PERFIL -->
+    <section class="section">
+      <h2 class="section-title">Perfil Profesional</h2>
+      <p class="summary">
+        Desarrollador de software con experiencia real construyendo productos digitales de principio a fin en mi propio estudio, NEXO Digital. He desarrollado desde un ecosistema TPV con 4 aplicaciones sincronizadas en tiempo real hasta plataformas con inteligencia artificial que uso a diario, participando en todo el ciclo: entender el problema, diseñar la solución, construirla, desplegarla y seguir mejorándola. Trabajo principalmente con TypeScript, React y Node.js, y utilizo la IA como herramienta de ingeniería para automatizar procesos. Busco mi primera oportunidad en un equipo donde aportar esa capacidad de construir productos completos mientras aprendo de personas con más experiencia.
+      </p>
+    </section>
+
+    <!-- EXPERIENCIA -->
+    <section class="section">
+      <h2 class="section-title">Experiencia Profesional</h2>
+
+      <article class="experience-item">
+        <div class="experience-header">
+          <h3 class="role">Desarrollador de Software</h3>
+          <span class="dates">Marzo 2026 – Actualidad</span>
+        </div>
+        <p class="company">NEXO Digital (estudio propio) — Barcelona, España</p>
+        <p class="company-context">Estudio de desarrollo de software donde convierto ideas en productos funcionales, tanto para clientes como para la propia empresa.</p>
+        <ul class="bullets">
+          <li>Desarrollé un ecosistema TPV para una heladería: 4 aplicaciones —punto de venta, pantalla de cocina (KDS), panel de administración y PWA para el cliente— sincronizadas en tiempo real con React, TypeScript y Supabase, con interfaz en 4 idiomas.</li>
+          <li>Construí una plataforma de comunicación cliente-equipo en monorepo con 2 aplicaciones Next.js 14, 88 rutas de API, PostgreSQL con Prisma, control de acceso por roles (RBAC) y chat en tiempo real, validada con tests end-to-end en Playwright.</li>
+          <li>Desarrollé el sistema operativo interno de la empresa —CRM, finanzas, tareas y e-mail integrado con Gmail— con Node.js, Express y PostgreSQL; en producción y usado a diario por el equipo, con 84 tests de integración.</li>
+          <li>Automaticé procesos del negocio con inteligencia artificial: agente propio con 123 herramientas, generador de landing pages con sanitización automática de datos personales, y bots de Telegram y Discord que eliminan tareas repetitivas.</li>
+          <li>Entregué el sitio corporativo de Santa Fe Construcciones (WordPress, SEO, Google Business, reCAPTCHA), mejorando su posicionamiento en búsquedas locales, y mantengo en evolución continua el sitio de OnaDance.</li>
+          <li>Despliego y opero las aplicaciones en servidores Linux propios con Docker, Nginx y PM2.</li>
+        </ul>
+      </article>
+
+    </section>
+
+    <!-- PROYECTOS -->
+    <section class="section">
+      <h2 class="section-title">Proyectos Destacados</h2>
+
+      <article class="project">
+        <div class="project-header">
+          <h3 class="project-name">Luna — Agente de IA autónomo <span class="project-repo">· <a href="https://github.com/Jhin1v9/luna-kernel">github.com/Jhin1v9/luna-kernel</a></span></h3>
+          <span class="project-tech">Node.js · Express · PostgreSQL · Playwright · PM2</span>
+        </div>
+        <p class="project-desc">
+          Sistema que permite a modelos de lenguaje ejecutar acciones reales en mi equipo a través de su propia interfaz web, sin depender de APIs de pago: detecta las llamadas a herramientas en la respuesta del modelo, las ejecuta localmente (archivos, shell, git, APIs —123 herramientas—) y devuelve el resultado al chat. Incluye bot de Telegram, CLI y sincronización entre varios equipos.
+        </p>
+      </article>
+
+      <article class="project">
+        <div class="project-header">
+          <h3 class="project-name">NEXO Workspace — Portal cliente-agencia <span class="project-repo">· <a href="https://github.com/Jhin1v9/nexo-workspace">github.com/Jhin1v9/nexo-workspace</a></span></h3>
+          <span class="project-tech">Next.js 14 · TypeScript · Prisma · PostgreSQL</span>
+        </div>
+        <p class="project-desc">
+          Plataforma de gestión cliente-equipo en monorepo (Turborepo + pnpm): 2 aplicaciones con dominio compartido (22 capabilities de negocio), control de acceso por roles, chat en tiempo real con SSE y una API REST documentada dedicada a agentes de IA. TypeScript estricto y tests end-to-end con Playwright.
+        </p>
+      </article>
+
+      <article class="project">
+        <div class="project-header">
+          <h3 class="project-name">NEXO Dashboard — Sistema operativo de la empresa</h3>
+          <span class="project-tech">Node.js · Express · React · PostgreSQL · WebSocket</span>
+        </div>
+        <p class="project-desc">
+          Plataforma en producción que centraliza la operación diaria: CRM de leads, finanzas con proyección de caja, tareas con menciones y e-mail con Gmail OAuth. Integrada con Luna: el equipo crea tareas, registra pagos y consulta información por lenguaje natural desde Telegram. Unas 300 rutas de API, actualizaciones en tiempo real y 84 tests de integración.
+        </p>
+      </article>
+
+      <article class="project">
+        <div class="project-header">
+          <h3 class="project-name">Landing Page Creator — Generador con IA <span class="project-repo">· <a href="https://github.com/Jhin1v9/nexo-lp-creator">github.com/Jhin1v9/nexo-lp-creator</a></span></h3>
+          <span class="project-tech">Node.js · Express · Svelte · SQLite · SSE</span>
+        </div>
+        <p class="project-desc">
+          Genera landing pages completas por conversación con IA mediante un pipeline de 4 fases con streaming en vivo. Cada página puede convertirse en plantilla reutilizable: la IA elimina automáticamente los datos personales (nombres, logos, contactos) y la publica en NEXO Store. Economía virtual interna de 3 monedas y unos 300 tests.
+        </p>
+      </article>
+
+      <article class="project">
+        <div class="project-header">
+          <h3 class="project-name">TPV Restauración — Ecosistema para hostelería <span class="project-repo">· <a href="https://github.com/Jhin1v9/TPV-SORVETERIA-DEMO">github.com/Jhin1v9/TPV-SORVETERIA-DEMO</a></span></h3>
+          <span class="project-tech">React 19 · TypeScript · Supabase · PWA</span>
+        </div>
+        <p class="project-desc">
+          Digitalización completa de una heladería (cliente real): TPV, sistema KDS para cocina, gestión de inventario y app instalable para el cliente, todo sincronizado en tiempo real con fallback offline. Internacionalización completa en español, catalán, portugués e inglés.
+        </p>
+      </article>
+
+      <article class="project">
+        <div class="project-header">
+          <h3 class="project-name">NEXO Store — App store del ecosistema <span class="project-repo">· <a href="https://github.com/Jhin1v9/nexo-digital-store">github.com/Jhin1v9/nexo-digital-store</a></span></h3>
+          <span class="project-tech">Next.js 16 · React 19 · TypeScript · Supabase</span>
+        </div>
+        <p class="project-desc">
+          Catálogo navegable de 75 productos propios con búsqueda, filtros y páginas de detalle con demo en vivo. Sistema de valoraciones con notificación a Telegram, panel de administración protegido y recepción automática de plantillas desde Landing Page Creator.
+        </p>
+      </article>
+
+      <article class="project">
+        <div class="project-header">
+          <h3 class="project-name">bug-detector-pro — Librería de bug reporting <span class="project-repo">· <a href="https://github.com/Jhin1v9/bug-detector-pro">github.com/Jhin1v9/bug-detector-pro</a></span></h3>
+          <span class="project-tech">TypeScript · Express · SQLite · IA</span>
+        </div>
+        <p class="project-desc">
+          Widget de reporte de bugs para desarrolladores: session replay, capturas anotadas, captura de consola y red, e inspector de DOM, con análisis automático mediante IA. SDK para React, Vue y JavaScript vanilla, cloud self-hosted e integraciones con GitHub Issues, Jira y Slack.
+        </p>
+      </article>
+
+    </section>
+
+    <!-- HABILIDADES -->
+    <section class="section">
+      <h2 class="section-title">Habilidades Técnicas</h2>
+      <div class="skill-row">
+        <span class="skill-label">Lenguajes</span>
+        <span class="skill-items">TypeScript · JavaScript · HTML5 · CSS3 · SQL</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">Frontend</span>
+        <span class="skill-items">React · Next.js · Svelte · Tailwind CSS · Vite · Zustand</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">Backend</span>
+        <span class="skill-items">Node.js · Express · APIs REST · WebSocket / SSE · JWT · Prisma</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">Bases de datos</span>
+        <span class="skill-items">PostgreSQL · Supabase · SQLite · Firebase</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">DevOps</span>
+        <span class="skill-items">Linux · Docker · Nginx · PM2 · Git · GitHub · Vercel · Playwright</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">IA y automatización</span>
+        <span class="skill-items">Integración de LLMs · agentes autónomos · Playwright / CDP · bots de Telegram y Discord · prompt engineering</span>
+      </div>
+    </section>
+
+    <!-- FORMACIÓN -->
+    <section class="section">
+      <h2 class="section-title">Formación</h2>
+      <p class="text-row"><strong>Formación técnica en desarrollo web — B7Web</strong> (2023–2026): aprendizaje continuo basado en la construcción de proyectos reales.</p>
+      <p class="text-row"><strong>Bachillerato</strong> — España (Cataluña) y Brasil.</p>
+    </section>
+
+    <!-- CERTIFICACIONES -->
+    <section class="section">
+      <h2 class="section-title">Certificaciones</h2>
+      <p class="text-row"><strong>B7Web</strong> (13 certificaciones, 2023–2026): Fundamentos de ReactJS · TypeScript · JavaScript (fundamentos y avanzado) · Tailwind CSS · Responsive Design · HTML5 y CSS3 · 3 certificaciones de proyectos prácticos.</p>
+      <p class="text-row"><strong>Busuu / McGraw Hill Education</strong>: Japonés — Nivel A2.</p>
+    </section>
+
+    <!-- IDIOMAS -->
+    <section class="section">
+      <h2 class="section-title">Idiomas</h2>
+      <p class="lang-line">
+        <strong>Catalán</strong> — Nativo · <strong>Español</strong> — Nativo · <strong>Portugués</strong> — Nativo · <strong>Inglés</strong> — Intermedio (B1–B2) · <strong>Japonés</strong> — A2
+      </p>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span>Julio 2026</span>
+    <span>
+      <a href="https://github.com/Jhin1v9">GitHub</a>
+      <span> · </span>
+      <a href="https://linkedin.com/in/abner-gabriel">LinkedIn</a>
+    </span>
+  </footer>
+
+</div>
+</body>
+</html>
